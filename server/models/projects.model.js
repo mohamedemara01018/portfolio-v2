@@ -10,10 +10,6 @@ const projectSchema = new Schema({
         maxlength: 100,
     },
 
-    slug: {
-        type: String,
-        unique: true,
-    },
 
     description: {
         type: String,
@@ -57,12 +53,5 @@ const projectSchema = new Schema({
     },
 }, { timestamps: true })
 
-
-projectSchema.pre('save', function (next) {
-    if (this.isModified("title")) {
-        this.slug = slugify(this.title, { lower: true, strict: true });
-    }
-    next();
-});
 
 export const projectModel = model('Projects', projectSchema);

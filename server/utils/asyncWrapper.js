@@ -1,11 +1,7 @@
 
 
-const asyncWrapper = function (asyncFun) {
-    return (req, res, next) => {
-        Promise.resolve(asyncFun(req, res, next)).catch((reason) => {
-            next(reason)
-        })
-    }
-}
+const asyncWrapper = (fn) => (req, res, next) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+};
 
 export default asyncWrapper

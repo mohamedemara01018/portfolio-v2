@@ -11,13 +11,6 @@ const blogSchema = new Schema(
       maxlength: 150,
     },
 
-    slug: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-    },
-
     content: {
       type: String,
       required: true,
@@ -53,13 +46,7 @@ const blogSchema = new Schema(
   { timestamps: true } // createdAt + updatedAt
 );
 
-// 🔥 Auto-generate slug from title before saving
-blogSchema.pre("save", function (next) {
-  if (this.isModified("title")) {
-    this.slug = slugify(this.title, { lower: true, strict: true });
-  }
-  next();
-});
+
 
 // 🔥 Indexes for performance
 blogSchema.index({ slug: 1 });

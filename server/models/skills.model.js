@@ -7,6 +7,7 @@ const skillSchema = new Schema({
         trim: true,
         minlength: 2,
         maxlength: 50,
+        unique: true,
     },
 
     level: {
