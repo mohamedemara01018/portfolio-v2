@@ -1,5 +1,5 @@
 import { experienceModel } from "../models/experiance.model.js";
-import asyncWrapper from "../utils/asyncWrapper.js";
+import asyncWrapper from "../middleware/asyncWrapper.js";
 import statusValues from "../utils/statusValues.js";
 
 
