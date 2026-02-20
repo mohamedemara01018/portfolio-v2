@@ -59,7 +59,6 @@ const updateProfileInfo = asyncWrapper(
         let avatarUrl = existedProfileInfo.avatar;
 
         if (req.file && req.file.buffer) {
-            console.log('hhhhhhhhhhhhhhhhhhhhhhhhhh')
             try {
                 const result = await replaceToCloudinary(req.file.buffer, avatarUrl)
                 avatarUrl = result.secure_url;

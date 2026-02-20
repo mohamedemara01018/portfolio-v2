@@ -12,7 +12,7 @@ router.route('/')
 
 router.route('/:id')
     .get(getBlogById)
-    .put(updateBlog)
+    .put(upload.single('coverImage'), updateBlog)
     .delete(deleteBlog)
 
 
