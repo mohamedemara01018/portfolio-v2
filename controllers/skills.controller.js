@@ -4,6 +4,7 @@ import statusValues from "../utils/statusValues.js";
 import replaceToCloudinary from "../utils/replaceToCloudinary.js";
 import uploadToCloudinary from "../utils/uploadToCloudinary.js";
 import { FolderPathOfCloudinary } from "../utils/constants.js";
+import { deleteFromCloudinary } from "../utils/deleteFromCloudinary.js";
 
 
 const getAllSkills = asyncWrapper(
@@ -70,6 +71,11 @@ const updateSkill = asyncWrapper(
 const deleteSkill = asyncWrapper(
     async (req, res, next) => {
         const { id } = req.params;
+
+        const existedSkill = await skillModel.findById(id);
+
+        await deleteFromCloudinary(existedSkill.icon);
+        
         const daletedSkill = await skillModel.findByIdAndDelete(id);
         res.status(200).json({ status: statusValues.SUCCESS, message: 'skill deleted successfully' })
     }
