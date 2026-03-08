@@ -6,8 +6,6 @@ const blogSchema = new Schema(
       type: String,
       required: [true, "Blog title is required"],
       trim: true,
-      minlength: 3,
-      maxlength: 150,
     },
 
     content: {
@@ -17,7 +15,6 @@ const blogSchema = new Schema(
 
     excerpt: {
       type: String,
-      maxlength: 300,
     },
 
     coverImage: {
