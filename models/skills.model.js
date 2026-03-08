@@ -19,7 +19,7 @@ const skillSchema = new Schema({
 
     category: {
         type: String,
-        enum: ["frontend", "backend", "database", "devops", "design"],
+        enum: ["frontend", "backend", "database", "tools", "devops", "design"],
         required: true,
     },
 
