@@ -15,6 +15,11 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+    res.send("express running on vercel");
+});
+
 app.use('/profileinfo', ProfileInfoRouter)
 app.use('/projects', projectRouter)
 app.use('/skills', skillRouter)
